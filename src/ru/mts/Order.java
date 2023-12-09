@@ -20,7 +20,7 @@ public class Order {
 
     // Method for printing total sum and total sum with discount
     public static void printTotal(Order order) {
-        if (order.goodsAmount > 0 || order.goodSum > 0) {
+        if (order.goodsAmount > 0 && order.goodSum > 0) {
             double totalSum = Math.round(order.goodSum * order.goodsAmount * 100.0) / 100.0;
             double roundDiscount = Math.round((1 - order.discount / 100.0) * 100.0) / 100.0;
             double totalSumWithDiscount = Math.round(totalSum * roundDiscount * 100.0) / 100.0;
