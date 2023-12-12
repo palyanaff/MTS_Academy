@@ -2,33 +2,43 @@ package ru.mts;
 
 /**
  * Class Order
- * goodsAmount - number of goods in order
- * goodSum - Sum of good in order
+ * goodsAmount - Number of goods in order
+ * goodsCost - Cost of goods in order
  * discount - Discount for total sum in order
  */
 public class Order {
     private int goodsAmount;  // Amount of goods in order
-    private double goodSum;   // Sum of good in order
+    private double goodsCost;   // Sum of good in order
     private double discount;    // Discount for total sum in order
 
     // Constructor
-    public Order(int amountOfGoods, double sumOfGood, double discount) {
+    public Order(int amountOfGoods, double goodsCost, double discount) {
             this.goodsAmount = amountOfGoods;
-            this.goodSum = sumOfGood;
+            this.goodsCost = goodsCost;
             this.discount = discount;
     }
 
-    // Method for printing total sum and total sum with discount
-    public static void printTotal(Order order) {
-        if (order.goodsAmount > 0 && order.goodSum > 0) {
-            double totalSum = Math.round(order.goodSum * order.goodsAmount * 100.0) / 100.0;
-            double roundDiscount = Math.round((1 - order.discount / 100.0) * 100.0) / 100.0;
-            double totalSumWithDiscount = Math.round(totalSum * roundDiscount * 100.0) / 100.0;
+    public int getGoodsAmount() {
+        return goodsAmount;
+    }
 
-            System.out.printf("Total cost of %d goods: %.2f\n", order.goodsAmount, totalSum);
-            System.out.printf("Total cost of %d goods with discount: %.2f\n", order.goodsAmount, totalSumWithDiscount);
-        } else {
-            System.out.println("ERROR: Wrong input");
-        }
+    public void setGoodsAmount(int goodsAmount) {
+        this.goodsAmount = goodsAmount;
+    }
+
+    public double getGoodsCost() {
+        return goodsCost;
+    }
+
+    public void setGoodsCost(double goodsCost) {
+        this.goodsCost = goodsCost;
+    }
+
+    public double getDiscount() {
+        return discount;
+    }
+
+    public void setDiscount(double discount) {
+        this.discount = discount;
     }
 }
