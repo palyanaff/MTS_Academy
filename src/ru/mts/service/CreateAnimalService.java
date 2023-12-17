@@ -1,4 +1,9 @@
-package ru.mts;
+package ru.mts.service;
+
+import ru.mts.animal.AbstractAnimal;
+import ru.mts.animal.Cat;
+import ru.mts.animal.Dog;
+import ru.mts.animal.Wolf;
 
 import java.math.BigDecimal;
 
@@ -26,8 +31,7 @@ public interface CreateAnimalService {
     default void createAnimal() {
         int i = 0;
         while (i < 10) {
-            AbstractAnimal animal = setAnimal(i);
-            System.out.println(animal.toString());
+            System.out.println(setAnimal(i).toString());
             i++;
         }
     }

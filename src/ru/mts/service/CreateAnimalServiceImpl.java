@@ -1,10 +1,9 @@
-package ru.mts;
+package ru.mts.service;
 
 public class CreateAnimalServiceImpl implements CreateAnimalService {
     public void createAnimal(int n) {
         for (int i = 0; i < n; i++) {
-            AbstractAnimal animal = setAnimal(i);
-            System.out.println(animal.toString());
+            System.out.println(setAnimal(i).toString());
         }
     }
 
@@ -12,8 +11,7 @@ public class CreateAnimalServiceImpl implements CreateAnimalService {
     public void createAnimal() {
         int i = 0;
         do {
-            AbstractAnimal animal = setAnimal(i);
-            System.out.println(animal.toString());
+            System.out.println(setAnimal(i).toString());
             i++;
         } while (i < 10);
     }

@@ -1,4 +1,4 @@
-package ru.mts;
+package ru.mts.animal;
 
 import java.math.BigDecimal;
 
