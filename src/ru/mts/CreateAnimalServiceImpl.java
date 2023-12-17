@@ -15,6 +15,6 @@ public class CreateAnimalServiceImpl implements CreateAnimalService {
             AbstractAnimal animal = setAnimal(i);
             System.out.println(animal.toString());
             i++;
-        } while (i < 9);
+        } while (i < 10);
     }
 }
