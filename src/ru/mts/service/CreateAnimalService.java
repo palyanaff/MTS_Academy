@@ -7,9 +7,24 @@ import ru.mts.animal.Wolf;
 
 import java.math.BigDecimal;
 
+/**
+ * Interface for creating classes that extends {@link AbstractAnimal}
+ *
+ * @author palyanaff
+ * @version 1.0
+ */
 public interface CreateAnimalService {
-    final int CLASS_AMOUNT = 3;
+    /**
+     * Amount of classes that extends {@link AbstractAnimal}
+     */
+    int CLASS_AMOUNT = 3;
 
+    /**
+     * Default method for creating unique animals
+     *
+     * @param i seed for determining which class to create
+     * @return unique animal as {@link AbstractAnimal}
+     */
     default AbstractAnimal setAnimal(int i) {
         AbstractAnimal animal;
         switch (i % CLASS_AMOUNT) {
@@ -28,6 +43,9 @@ public interface CreateAnimalService {
         return animal;
     }
 
+    /**
+     * Default method for creating 10 unique animals
+     */
     default void createAnimal() {
         int i = 0;
         while (i < 10) {
