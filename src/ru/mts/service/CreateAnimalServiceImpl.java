@@ -21,6 +21,7 @@ public class CreateAnimalServiceImpl implements CreateAnimalService {
 
     /**
      * Create 10 unique animals
+     *
      * @see CreateAnimalServiceImpl#createAnimal(int n)
      */
     @Override

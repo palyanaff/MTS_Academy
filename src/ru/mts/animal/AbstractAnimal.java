@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Objects;
 
 /**
  * Abstract class that contains main logic of animals
@@ -73,6 +74,20 @@ abstract public class AbstractAnimal implements Animal {
     @Override
     public LocalDate getBirthDate() {
         return birthDate;
+    }
+
+    /**
+     * Method for determine equals Animals
+     *
+     * @param o Animal to compare
+     * @return true if Animals are equals, false if not
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        AbstractAnimal that = (AbstractAnimal) o;
+        return Objects.equals(breed, that.breed) && Objects.equals(name, that.name) && Objects.equals(birthDate, that.birthDate);
     }
 
     @Override
