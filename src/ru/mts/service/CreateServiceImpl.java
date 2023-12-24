@@ -8,10 +8,15 @@ import ru.mts.factory.CatFactory;
 import ru.mts.factory.DogFactory;
 import ru.mts.factory.WolfFactory;
 
+/**
+ * Class for creating random animals with Factory pattern that extends {@link ru.mts.animal.AbstractAnimal}
+ *
+ * @author palyanaff
+ * @version 1.0
+ */
 public class CreateServiceImpl implements CreateService {
     @Override
     public AbstractAnimal[] createAnimals(int capacity) {
-        int CLASS_AMOUNT = 3;
         AbstractAnimal[] animals = new AbstractAnimal[capacity];
         DogFactory df = new DogFactory();
         CatFactory cf = new CatFactory();
@@ -55,7 +60,7 @@ public class CreateServiceImpl implements CreateService {
     }
 
     @Override
-    public AbstractAnimal[] createWolfs(int capacity) {
+    public AbstractAnimal[] createWolves(int capacity) {
         AbstractAnimal[] wolfs = new Wolf[capacity];
         WolfFactory wf = new WolfFactory();
         for (int i = 0; i < capacity; i++) {

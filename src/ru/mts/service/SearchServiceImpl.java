@@ -4,6 +4,12 @@ import ru.mts.animal.AbstractAnimal;
 
 import java.time.LocalDate;
 
+/**
+ * Class for searching in array of animals that extends {@link ru.mts.animal.AbstractAnimal}
+ *
+ * @author palyanaff
+ * @version 1.0
+ */
 public class SearchServiceImpl implements SearchService {
     @Override
     public String[] findLeapYearNames(AbstractAnimal[] animals) {

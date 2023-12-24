@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 
 /**
- * Abstract class that contains main logic of pe
+ * Abstract class that contains main logic of pet
  *
  * @author palyanaff
  * @version 1.0

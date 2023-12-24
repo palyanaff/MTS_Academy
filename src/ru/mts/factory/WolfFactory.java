@@ -7,6 +7,12 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.Random;
 
+/**
+ * Class that make random Wolf
+ *
+ * @author palyanaff
+ * @version 1.0
+ */
 public class WolfFactory extends AnimalFactory {
     @Override
     protected AbstractAnimal createAnimal() {

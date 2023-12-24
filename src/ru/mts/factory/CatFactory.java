@@ -7,6 +7,12 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.Random;
 
+/**
+ * Class that make random Cat
+ *
+ * @author palyanaff
+ * @version 1.0
+ */
 public class CatFactory extends AnimalFactory {
     @Override
     protected AbstractAnimal createAnimal() {
