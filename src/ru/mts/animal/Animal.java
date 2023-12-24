@@ -1,6 +1,7 @@
 package ru.mts.animal;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 
 /**
  * Interface realize the most common methods of Animal classes
@@ -36,4 +37,11 @@ public interface Animal {
      * @return character as String
      */
     String getCharacter();
+
+    /**
+     * Getter for animal birthdate
+     *
+     * @return birthdate as LocalDate
+     */
+    LocalDate getBirthDate();
 }

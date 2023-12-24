@@ -1,6 +1,7 @@
 package ru.mts.animal;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 
 /**
  * Abstract class that contains main logic of predator
@@ -21,10 +22,11 @@ abstract public class Predator extends AbstractAnimal {
      * @param name      name of predator as String
      * @param cost      cost of predator as BigDecimal
      * @param character character of predator as String
+     * @param birthDate birthdate of predator as LocalDate
      * @param location  location of predator as String
      */
-    public Predator(String breed, String name, BigDecimal cost, String character, String location) {
-        super(breed, name, cost, character);
+    public Predator(String breed, String name, BigDecimal cost, String character, LocalDate birthDate, String location) {
+        super(breed, name, cost, character, birthDate);
         this.location = location;
     }
 
@@ -60,6 +62,7 @@ abstract public class Predator extends AbstractAnimal {
                 ", name='" + name + '\'' +
                 ", cost=" + cost +
                 ", character='" + character + '\'' +
+                ", birthDate=" + getFormattedDate(birthDate) +
                 ", location='" + location + '\'' +
                 '}';
     }

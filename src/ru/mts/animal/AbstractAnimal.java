@@ -2,6 +2,8 @@ package ru.mts.animal;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 /**
  * Abstract class that contains main logic of animals
@@ -28,6 +30,11 @@ abstract public class AbstractAnimal implements Animal {
     protected String character;
 
     /**
+     * Animal birthdate
+     */
+    protected LocalDate birthDate;
+
+    /**
      * Constructor for abstract animal class
      *
      * @param breed     breed of predator as String
@@ -35,11 +42,12 @@ abstract public class AbstractAnimal implements Animal {
      * @param cost      cost of predator as BigDecimal
      * @param character character of predator as String
      */
-    public AbstractAnimal(String breed, String name, BigDecimal cost, String character) {
+    public AbstractAnimal(String breed, String name, BigDecimal cost, String character, LocalDate birthDate) {
         this.breed = breed;
         this.name = name;
         this.cost = cost.setScale(2, RoundingMode.HALF_UP);
         this.character = character;
+        this.birthDate = birthDate;
     }
 
     @Override
@@ -63,12 +71,29 @@ abstract public class AbstractAnimal implements Animal {
     }
 
     @Override
+    public LocalDate getBirthDate() {
+        return birthDate;
+    }
+
+    @Override
     public String toString() {
         return "AbstractAnimal{" +
                 "breed='" + breed + '\'' +
                 ", name='" + name + '\'' +
                 ", cost=" + cost +
                 ", character='" + character + '\'' +
+                ", birthDate=" + getFormattedDate(birthDate) +
                 '}';
+    }
+
+    /**
+     * Method for formatting LocalDate in dd-MM-yyyy format
+     *
+     * @param date LocalDate in yyyy-mm-dd format
+     * @return LocalDate in dd-MM-yyyy format
+     */
+    public String getFormattedDate(LocalDate date) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        return date.format(formatter);
     }
 }

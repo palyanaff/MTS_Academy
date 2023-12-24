@@ -1,6 +1,7 @@
 package ru.mts.animal;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 
 public class Wolf extends Predator {
     @Override
@@ -8,8 +9,8 @@ public class Wolf extends Predator {
         super.bite();
     }
 
-    public Wolf(String breed, String name, BigDecimal cost, String character, String location) {
-        super(breed, name, cost, character, location);
+    public Wolf(String breed, String name, BigDecimal cost, String character, LocalDate birthDate, String location) {
+        super(breed, name, cost, character, birthDate, location);
     }
 
     @Override
@@ -19,6 +20,7 @@ public class Wolf extends Predator {
                 ", name='" + name + '\'' +
                 ", cost=" + cost +
                 ", character='" + character + '\'' +
+                ", birthDate=" + getFormattedDate(birthDate) +
                 ", location='" + location + '\'' +
                 '}';
     }
