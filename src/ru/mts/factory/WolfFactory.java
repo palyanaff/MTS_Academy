@@ -19,6 +19,6 @@ public class WolfFactory extends AnimalFactory {
         Random random = new Random();
         int i = random.nextInt(100);
         return new Wolf("Grey", "Wolf " + i, new BigDecimal(25.25 + i * 20),
-                "Wolf", LocalDate.now().minusMonths(i), "Forest");
+                "Wolf", LocalDate.now().minusMonths(i * 2), "Forest");
     }
 }

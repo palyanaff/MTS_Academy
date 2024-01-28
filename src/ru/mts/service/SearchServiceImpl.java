@@ -21,9 +21,7 @@ public class SearchServiceImpl implements SearchService {
             }
         }
         String[] result = new String[resLength];
-        for (int i = 0; i < resLength; i++) {
-            result[i] = temp[i];
-        }
+        System.arraycopy(temp, 0, result, 0, resLength);
         return result;
     }
 
@@ -32,14 +30,15 @@ public class SearchServiceImpl implements SearchService {
         AbstractAnimal[] temp = new AbstractAnimal[animals.length];
         int resLength = 0;
         for (AbstractAnimal animal : animals) {
-            if (LocalDate.now().getYear() - animal.getBirthDate().getYear() > N) {
+            int yearDif = LocalDate.now().getYear() - animal.getBirthDate().getYear();
+            int dayDif = LocalDate.now().getDayOfYear() - animal.getBirthDate().getDayOfYear();
+            if ((yearDif > N) || (yearDif == N && dayDif < 0)) {
                 temp[resLength++] = animal;
             }
         }
+
         AbstractAnimal[] result = new AbstractAnimal[resLength];
-        for (int i = 0; i < resLength; i++) {
-            result[i] = temp[i];
-        }
+        System.arraycopy(temp, 0, result, 0, resLength);
         return result;
     }
 
