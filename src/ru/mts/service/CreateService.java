@@ -10,11 +10,6 @@ import ru.mts.animal.AbstractAnimal;
  */
 public interface CreateService {
     /**
-     * Amount of classes that extends {@link AbstractAnimal}
-     */
-    int CLASS_AMOUNT = 3;
-
-    /**
      * Method for creating array of {@link AbstractAnimal}
      *
      * @param capacity amount of animals in array

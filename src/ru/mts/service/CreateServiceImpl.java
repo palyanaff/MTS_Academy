@@ -6,6 +6,7 @@ import ru.mts.animal.Dog;
 import ru.mts.animal.Wolf;
 import ru.mts.factory.CatFactory;
 import ru.mts.factory.DogFactory;
+import ru.mts.factory.RandomFactory;
 import ru.mts.factory.WolfFactory;
 
 /**
@@ -18,23 +19,8 @@ public class CreateServiceImpl implements CreateService {
     @Override
     public AbstractAnimal[] createAnimals(int capacity) {
         AbstractAnimal[] animals = new AbstractAnimal[capacity];
-        DogFactory df = new DogFactory();
-        CatFactory cf = new CatFactory();
-        WolfFactory wf = new WolfFactory();
         for (int i = 0; i < capacity; i++) {
-            switch (i % CLASS_AMOUNT) {
-                case 0:
-                    animals[i] = df.create();
-                    break;
-                case 1:
-                    animals[i] = wf.create();
-                    break;
-                case 2:
-                    animals[i] = cf.create();
-                    break;
-                default:
-                    throw new IllegalStateException("Unexpected value: " + i % CLASS_AMOUNT);
-            }
+            animals[i] = RandomFactory.factory.createRandomAnimal();
         }
         return animals;
     }
