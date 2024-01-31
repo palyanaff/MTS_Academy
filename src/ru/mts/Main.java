@@ -1,8 +1,13 @@
 package ru.mts;
 
 import ru.mts.animal.AbstractAnimal;
+import ru.mts.animal.Cat;
+import ru.mts.animal.Dog;
 import ru.mts.service.CreateServiceImpl;
 import ru.mts.service.SearchServiceImpl;
+
+import java.math.BigDecimal;
+import java.time.LocalDate;
 
 public class Main {
     public static void main(String[] args) {
@@ -23,6 +28,6 @@ public class Main {
         }
 
         System.out.println("Duplicates:");
-        searchService.findDuplicate(animals);
+        searchService.printDuplicate(animals);
     }
 }

@@ -32,7 +32,7 @@ public class SearchServiceImpl implements SearchService {
         for (AbstractAnimal animal : animals) {
             int yearDif = LocalDate.now().getYear() - animal.getBirthDate().getYear();
             int dayDif = LocalDate.now().getDayOfYear() - animal.getBirthDate().getDayOfYear();
-            if ((yearDif > N) || (yearDif == N && dayDif < 0)) {
+            if ((yearDif > N) || (yearDif == N && dayDif >= 0)) {
                 temp[resLength++] = animal;
             }
         }
@@ -43,13 +43,25 @@ public class SearchServiceImpl implements SearchService {
     }
 
     @Override
-    public void findDuplicate(AbstractAnimal[] animals) {
+    public AbstractAnimal[] findDuplicate(AbstractAnimal[] animals) {
+        AbstractAnimal[] temp = new AbstractAnimal[animals.length];
+        int resLength = 0;
         for (int i = 0; i < animals.length; i++) {
             for (int j = 0; j < i; j++) {
                 if (animals[i].equals(animals[j])) {
-                    System.out.println(animals[i] + " equals " + animals[j]);
+                    temp[resLength++] = animals[j];
                 }
             }
+        }
+        AbstractAnimal[] result = new AbstractAnimal[resLength];
+        System.arraycopy(temp, 0, result, 0, resLength);
+        return result;
+    }
+
+    @Override
+    public void printDuplicate(AbstractAnimal[] animals) {
+        for (AbstractAnimal animal : findDuplicate(animals)) {
+            System.out.println(animal);
         }
     }
 }

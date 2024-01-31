@@ -25,5 +25,12 @@ public interface SearchService {
      *
      * @param animals array of {@link AbstractAnimal}
      */
-    void findDuplicate(AbstractAnimal[] animals);
+    AbstractAnimal[] findDuplicate(AbstractAnimal[] animals);
+
+    /**
+     * Method for printing duplicates in array of {@link AbstractAnimal}
+     *
+     * @param animals array of {@link AbstractAnimal}
+     */
+    void printDuplicate(AbstractAnimal[] animals);
 }
