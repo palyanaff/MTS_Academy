@@ -1,6 +1,5 @@
 package Part2;
 
-import org.junit.Assert;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeAll;
@@ -15,7 +14,7 @@ import java.time.LocalDate;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
-public class SearchTests {
+public class SearchServiceTests {
 
     private static SearchServiceImpl searchService;
 
@@ -27,19 +26,19 @@ public class SearchTests {
 
     @Test
     @DisplayName("Find leap year names test")
-    public void findLeapYearNamesTest() {
+    public void testFindLeapYearNames() {
         int i = 0;
         AbstractAnimal cat1 = new Cat("White", "Barsik " + i++, new BigDecimal("0"),
                 "Cat", LocalDate.of(2000, 1, 1), "Saint Petersburg");
-        AbstractAnimal dog1 = new Dog("Husky", "Lucky " + i++, new BigDecimal(0),
+        AbstractAnimal dog1 = new Dog("Husky", "Lucky " + i++, BigDecimal.ZERO,
                 "Dog", LocalDate.of(2001, 1, 1), "Moscow");
-        AbstractAnimal wolf1 = new Wolf("Grey", "Wolf " + i++, new BigDecimal(0),
+        AbstractAnimal wolf1 = new Wolf("Grey", "Wolf " + i++, BigDecimal.ZERO,
                 "Wolf", LocalDate.of(2002, 1, 1), "Forest");
         AbstractAnimal cat2 = new Cat("White", "Barsik " + i++, new BigDecimal("0"),
                 "Cat", LocalDate.of(2003, 1, 1), "Saint Petersburg");
-        AbstractAnimal dog2 = new Dog("Husky", "Lucky " + i++, new BigDecimal(0),
+        AbstractAnimal dog2 = new Dog("Husky", "Lucky " + i++, BigDecimal.ZERO,
                 "Dog", LocalDate.of(2004, 1, 1), "Moscow");
-        AbstractAnimal wolf2 = new Wolf("Grey", "Wolf " + i++, new BigDecimal(0),
+        AbstractAnimal wolf2 = new Wolf("Grey", "Wolf " + i++, BigDecimal.ZERO,
                 "Wolf", LocalDate.of(2005, 1, 1), "Forest");
 
 
@@ -51,23 +50,23 @@ public class SearchTests {
 
     @Test
     @DisplayName("Find leap year names test")
-    public void findOlderAnimalTest() {
+    public void testFindOlderAnimal() {
         int i = 0;
-        AbstractAnimal cat1 = new Cat("White", "Barsik " + i++, new BigDecimal("0"),
+        AbstractAnimal cat1 = new Cat("White", "Barsik " + i++, BigDecimal.ZERO,
                 "Cat", LocalDate.of(2000, 1, 1), "Saint Petersburg");
-        AbstractAnimal dog1 = new Dog("Husky", "Lucky " + i++, new BigDecimal(0),
+        AbstractAnimal dog1 = new Dog("Husky", "Lucky " + i++, BigDecimal.ZERO,
                 "Dog", LocalDate.of(2001, 1, 1), "Moscow");
-        AbstractAnimal wolf1 = new Wolf("Grey", "Wolf " + i++, new BigDecimal(0),
+        AbstractAnimal wolf1 = new Wolf("Grey", "Wolf " + i++, BigDecimal.ZERO,
                 "Wolf", LocalDate.of(2002, 1, 1), "Forest");
         AbstractAnimal cat2 = new Cat("White", "Barsik " + i++, new BigDecimal("0"),
                 "Cat", LocalDate.of(2003, 5, 2), "Saint Petersburg");
-        AbstractAnimal dog2 = new Dog("Husky", "Lucky " + i++, new BigDecimal(0),
+        AbstractAnimal dog2 = new Dog("Husky", "Lucky " + i++, BigDecimal.ZERO,
                 "Dog", LocalDate.of(2004, 1, 1), "Moscow");
-        AbstractAnimal wolf2 = new Wolf("Grey", "Wolf " + i++, new BigDecimal(0),
+        AbstractAnimal wolf2 = new Wolf("Grey", "Wolf " + i++, BigDecimal.ZERO,
                 "Wolf", LocalDate.of(2004, 1, 20), "Forest");
-        AbstractAnimal wolf3 = new Wolf("Grey", "Wolf " + i++, new BigDecimal(0),
+        AbstractAnimal wolf3 = new Wolf("Grey", "Wolf " + i++, BigDecimal.ZERO,
                 "Wolf", LocalDate.of(2004, 3, 1), "Forest");
-        AbstractAnimal wolf4 = new Wolf("Grey", "Wolf " + i++, new BigDecimal(0),
+        AbstractAnimal wolf4 = new Wolf("Grey", "Wolf " + i++, BigDecimal.ZERO,
                 "Wolf", LocalDate.now(), "Forest");
 
         AbstractAnimal[] animals = new AbstractAnimal[]{cat1, cat2, dog1, dog2, wolf1, wolf2, wolf3, wolf4};
@@ -81,16 +80,16 @@ public class SearchTests {
 
     @Test
     @DisplayName("Find duplicates test")
-    public void findDuplicateTest() {
-        AbstractAnimal animal1 = new Cat("White", "Barsik", new BigDecimal("0"),
+    public void testFindDuplicate() {
+        AbstractAnimal animal1 = new Cat("White", "Barsik", BigDecimal.ZERO,
                 "Cat", LocalDate.of(2000, 1, 1), "Saint Petersburg");
-        AbstractAnimal animal2 = new Dog("Husky", "Lucky", new BigDecimal(0),
+        AbstractAnimal animal2 = new Dog("Husky", "Lucky", BigDecimal.ZERO,
                 "Dog", LocalDate.of(2001, 1, 1), "Moscow");
-        AbstractAnimal animal3 = new Wolf("Grey", "Wolf", new BigDecimal(0),
+        AbstractAnimal animal3 = new Wolf("Grey", "Wolf", BigDecimal.ZERO,
                 "Wolf", LocalDate.of(2002, 1, 1), "Forest");
-        AbstractAnimal animal4 = new Wolf("Grey", "Wolf", new BigDecimal(0),
+        AbstractAnimal animal4 = new Wolf("Grey", "Wolf", BigDecimal.ZERO,
                 "Wolf", LocalDate.of(2002, 1, 1), "Forest");
-        AbstractAnimal animal5 = new Wolf("Grey1", "Wolf", new BigDecimal(0),
+        AbstractAnimal animal5 = new Wolf("Grey1", "Wolf", BigDecimal.ZERO,
                 "Wolf", LocalDate.of(2002, 1, 1), "Forest");
 
         AbstractAnimal[] animals = new AbstractAnimal[]{animal1, animal1, animal2, animal3, animal4, animal5};
