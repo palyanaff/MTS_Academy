@@ -1,21 +1,25 @@
 package ru.mts.service;
 
-import ru.mts.animal.AbstractAnimal;
-import ru.mts.animal.Cat;
-import ru.mts.animal.Dog;
-import ru.mts.animal.Wolf;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Service;
+import ru.mts.animal.*;
 import ru.mts.factory.CatFactory;
 import ru.mts.factory.DogFactory;
 import ru.mts.factory.RandomFactory;
 import ru.mts.factory.WolfFactory;
 
+import java.util.List;
+
 /**
  * Class for creating random animals with Factory pattern that extends {@link ru.mts.animal.AbstractAnimal}
  *
  * @author palyanaff
- * @version 1.0
+ * @version 2.0
  */
+@Service
+@Scope(value = "prototype")
 public class CreateServiceImpl implements CreateService {
+    private List<AnimalsEnum> animalType;
     @Override
     public AbstractAnimal[] createAnimals(int capacity) {
         AbstractAnimal[] animals = new AbstractAnimal[capacity];
