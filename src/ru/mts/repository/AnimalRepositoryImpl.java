@@ -23,7 +23,7 @@ public class AnimalRepositoryImpl implements AnimalRepository {
 
     @PostConstruct
     private void initService() {
-        animals = createService.createAnimals(10);
+        animals = createService.createAnimals();
     }
 
     @Override
@@ -68,7 +68,7 @@ public class AnimalRepositoryImpl implements AnimalRepository {
                 }
             }
         }
-        return new HashSet<>(Arrays.asList(temp)) ;
+        return new HashSet<>(Arrays.asList(temp));
     }
 
     @Override

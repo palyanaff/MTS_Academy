@@ -8,6 +8,7 @@ import ru.mts.factory.DogFactory;
 import ru.mts.factory.RandomFactory;
 import ru.mts.factory.WolfFactory;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -20,6 +21,12 @@ import java.util.List;
 @Scope(value = "prototype")
 public class CreateServiceImpl implements CreateService {
     private List<AnimalsEnum> animalType;
+
+    @Override
+    public AbstractAnimal[] createAnimals() {
+        return createAnimals(10);
+    }
+
     @Override
     public AbstractAnimal[] createAnimals(int capacity) {
         AbstractAnimal[] animals = new AbstractAnimal[capacity];
@@ -57,5 +64,29 @@ public class CreateServiceImpl implements CreateService {
             wolfs[i] = wf.create();
         }
         return wolfs;
+    }
+
+    public List<AnimalsEnum> defineAnimalType() {
+        AbstractAnimal[] animals = createAnimals();
+        List<AnimalsEnum> types = new ArrayList<>(animals.length);
+
+        for (AbstractAnimal animal : animals) {
+            if (animal instanceof Cat) {
+                types.add(AnimalsEnum.CAT);
+            } else if (animal instanceof Dog) {
+                types.add(AnimalsEnum.DOG);
+            } else if (animal instanceof Wolf) {
+                types.add(AnimalsEnum.WOLF);
+            }
+        }
+        return types;
+    }
+
+    public List<AnimalsEnum> getAnimalType() {
+        return animalType;
+    }
+
+    public void setAnimalType(List<AnimalsEnum> animalType) {
+        this.animalType = animalType;
     }
 }

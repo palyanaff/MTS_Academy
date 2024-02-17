@@ -11,6 +11,13 @@ import ru.mts.animal.AbstractAnimal;
 
 public interface CreateService {
 
+    /**
+     * Method for creating array of {@link AbstractAnimal}
+     *
+     * @return array of {@link AbstractAnimal}
+     */
+    AbstractAnimal[] createAnimals();
+
 
     /**
      * Method for creating array of {@link AbstractAnimal}

@@ -18,6 +18,12 @@ public class Main {
     public static void main(String[] args) {
         ApplicationContext context = new AnnotationConfigApplicationContext(Main.class);
 
+        CreateServiceImpl service = context.getBean(CreateServiceImpl.class);
+        System.out.println(service.getAnimalType());
+
+        service = context.getBean(CreateServiceImpl.class);
+        System.out.println(service.getAnimalType());
+
         AnimalRepository repository = context.getBean(AnimalRepositoryImpl.class);
 
         System.out.println("Leap years:");
