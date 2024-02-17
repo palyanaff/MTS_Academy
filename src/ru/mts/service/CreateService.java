@@ -6,9 +6,19 @@ import ru.mts.animal.AbstractAnimal;
  * Interface for creating classes with Factory pattern that extends {@link AbstractAnimal}
  *
  * @author palyanaff
- * @version 1.0
+ * @version 2.0
  */
+
 public interface CreateService {
+
+    /**
+     * Method for creating array of {@link AbstractAnimal}
+     *
+     * @return array of {@link AbstractAnimal}
+     */
+    AbstractAnimal[] createAnimals();
+
+
     /**
      * Method for creating array of {@link AbstractAnimal}
      *

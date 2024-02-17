@@ -1,21 +1,32 @@
 package ru.mts.service;
 
-import ru.mts.animal.AbstractAnimal;
-import ru.mts.animal.Cat;
-import ru.mts.animal.Dog;
-import ru.mts.animal.Wolf;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Service;
+import ru.mts.animal.*;
 import ru.mts.factory.CatFactory;
 import ru.mts.factory.DogFactory;
 import ru.mts.factory.RandomFactory;
 import ru.mts.factory.WolfFactory;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Class for creating random animals with Factory pattern that extends {@link ru.mts.animal.AbstractAnimal}
  *
  * @author palyanaff
- * @version 1.0
+ * @version 2.0
  */
+@Service
+@Scope(value = "prototype")
 public class CreateServiceImpl implements CreateService {
+    private List<AnimalsEnum> animalType;
+
+    @Override
+    public AbstractAnimal[] createAnimals() {
+        return createAnimals(10);
+    }
+
     @Override
     public AbstractAnimal[] createAnimals(int capacity) {
         AbstractAnimal[] animals = new AbstractAnimal[capacity];
@@ -53,5 +64,29 @@ public class CreateServiceImpl implements CreateService {
             wolfs[i] = wf.create();
         }
         return wolfs;
+    }
+
+    public List<AnimalsEnum> defineAnimalType() {
+        AbstractAnimal[] animals = createAnimals();
+        List<AnimalsEnum> types = new ArrayList<>(animals.length);
+
+        for (AbstractAnimal animal : animals) {
+            if (animal instanceof Cat) {
+                types.add(AnimalsEnum.CAT);
+            } else if (animal instanceof Dog) {
+                types.add(AnimalsEnum.DOG);
+            } else if (animal instanceof Wolf) {
+                types.add(AnimalsEnum.WOLF);
+            }
+        }
+        return types;
+    }
+
+    public List<AnimalsEnum> getAnimalType() {
+        return animalType;
+    }
+
+    public void setAnimalType(List<AnimalsEnum> animalType) {
+        this.animalType = animalType;
     }
 }
