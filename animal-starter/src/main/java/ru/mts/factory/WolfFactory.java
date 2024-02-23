@@ -1,10 +1,13 @@
 package ru.mts.factory;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import ru.mts.animal.AbstractAnimal;
 import ru.mts.animal.Wolf;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -13,12 +16,18 @@ import java.util.Random;
  * @author palyanaff
  * @version 1.0
  */
+@Component
 public class WolfFactory extends AnimalFactory {
+    @Autowired
+    private AnimalProperties animalProperties;
+
+
     @Override
     protected AbstractAnimal createAnimal() {
         Random random = new Random();
+        List<String> wolfNames = animalProperties.getWolfNames();
         int i = random.nextInt(100);
-        return new Wolf("Grey", "Wolf " + i, new BigDecimal(25.25 + i * 20),
+        return new Wolf("Grey", wolfNames.get(i % wolfNames.size()), new BigDecimal(25.25 + i * 20),
                 "Wolf", LocalDate.now().minusMonths(i * 2), "Forest");
     }
 }

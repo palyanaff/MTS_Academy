@@ -2,10 +2,11 @@ package ru.mts.bpp;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.lang.NonNull;
+import org.springframework.stereotype.Component;
 import ru.mts.service.CreateServiceImpl;
 
-@Configuration
+@Component
 public class AnimalTypeBeanPostProcessor implements BeanPostProcessor {
     @Override
     public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {

@@ -1,5 +1,6 @@
 package ru.mts.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 import ru.mts.animal.*;
@@ -22,6 +23,9 @@ import java.util.List;
 public class CreateServiceImpl implements CreateService {
     private List<AnimalsEnum> animalType;
 
+    @Autowired
+    private RandomFactory randomFactory;
+
     @Override
     public AbstractAnimal[] createAnimals() {
         return createAnimals(10);
@@ -31,7 +35,7 @@ public class CreateServiceImpl implements CreateService {
     public AbstractAnimal[] createAnimals(int capacity) {
         AbstractAnimal[] animals = new AbstractAnimal[capacity];
         for (int i = 0; i < capacity; i++) {
-            animals[i] = RandomFactory.factory.createRandomAnimal();
+            animals[i] = randomFactory.createRandomAnimal();
         }
         return animals;
     }
