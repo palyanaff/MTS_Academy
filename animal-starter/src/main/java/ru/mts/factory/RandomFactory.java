@@ -8,12 +8,15 @@ import java.util.Random;
 
 @Component
 public class RandomFactory {
-    @Autowired
-    private CatFactory catFactory;
-    @Autowired
-    private DogFactory dogFactory;
-    @Autowired
-    private WolfFactory wolfFactory;
+    private final CatFactory catFactory;
+    private final DogFactory dogFactory;
+    private final WolfFactory wolfFactory;
+
+    public RandomFactory(CatFactory catFactory, DogFactory dogFactory, WolfFactory wolfFactory) {
+        this.catFactory = catFactory;
+        this.dogFactory = dogFactory;
+        this.wolfFactory = wolfFactory;
+    }
 
     public AbstractAnimal createRandomAnimal() {
         int ind = new Random().nextInt(3);

@@ -18,8 +18,11 @@ public class AnimalRepositoryImpl implements AnimalRepository {
 
     private AbstractAnimal[] animals;
 
-    @Autowired
-    public CreateServiceImpl createService;
+    public final CreateServiceImpl createService;
+
+    public AnimalRepositoryImpl(CreateServiceImpl createService) {
+        this.createService = createService;
+    }
 
     @PostConstruct
     private void initService() {

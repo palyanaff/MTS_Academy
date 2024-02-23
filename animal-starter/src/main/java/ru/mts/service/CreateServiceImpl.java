@@ -9,6 +9,7 @@ import ru.mts.factory.DogFactory;
 import ru.mts.factory.RandomFactory;
 import ru.mts.factory.WolfFactory;
 
+import javax.annotation.PostConstruct;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,8 +24,11 @@ import java.util.List;
 public class CreateServiceImpl implements CreateService {
     private List<AnimalsEnum> animalType;
 
-    @Autowired
-    private RandomFactory randomFactory;
+    private final RandomFactory randomFactory;
+
+    public CreateServiceImpl(RandomFactory randomFactory) {
+        this.randomFactory = randomFactory;
+    }
 
     @Override
     public AbstractAnimal[] createAnimals() {
@@ -43,30 +47,30 @@ public class CreateServiceImpl implements CreateService {
     @Override
     public AbstractAnimal[] createDogs(int capacity) {
         AbstractAnimal[] dogs = new Dog[capacity];
-        DogFactory df = new DogFactory();
-        for (int i = 0; i < capacity; i++) {
-            dogs[i] = df.create();
-        }
+//        DogFactory df = new DogFactory();
+//        for (int i = 0; i < capacity; i++) {
+//            dogs[i] = df.create();
+//        }
         return dogs;
     }
 
     @Override
     public AbstractAnimal[] createCats(int capacity) {
         AbstractAnimal[] cats = new Cat[capacity];
-        CatFactory cf = new CatFactory();
-        for (int i = 0; i < capacity; i++) {
-            cats[i] = cf.create();
-        }
+//        CatFactory cf = new CatFactory();
+//        for (int i = 0; i < capacity; i++) {
+//            cats[i] = cf.create();
+//        }
         return cats;
     }
 
     @Override
     public AbstractAnimal[] createWolves(int capacity) {
         AbstractAnimal[] wolfs = new Wolf[capacity];
-        WolfFactory wf = new WolfFactory();
-        for (int i = 0; i < capacity; i++) {
-            wolfs[i] = wf.create();
-        }
+//        WolfFactory wf = new WolfFactory();
+//        for (int i = 0; i < capacity; i++) {
+//            wolfs[i] = wf.create();
+//        }
         return wolfs;
     }
 
