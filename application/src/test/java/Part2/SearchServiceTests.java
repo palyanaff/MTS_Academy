@@ -1,8 +1,10 @@
 package Part2;
 
+
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.BeforeAll;
 import ru.mts.animal.AbstractAnimal;
 import ru.mts.animal.Cat;
 import ru.mts.animal.Dog;
@@ -12,7 +14,7 @@ import ru.mts.service.SearchServiceImpl;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class SearchServiceTests {
 

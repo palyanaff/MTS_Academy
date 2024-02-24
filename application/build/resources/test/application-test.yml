@@ -1,0 +1,16 @@
+animals:
+  catNames:
+    - testBarsik
+    - testKitik
+    - testMusya
+    - testSnejok
+  dogNames:
+    - testDrujok
+    - testDogg
+    - testLoky
+    - testVitek
+  wolfNames:
+    - testAlpha
+    - testSummer
+    - testGhost
+    - testNimeriya

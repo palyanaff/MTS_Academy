@@ -1,5 +1,6 @@
 package Part1;
 
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import ru.mts.animal.AbstractAnimal;

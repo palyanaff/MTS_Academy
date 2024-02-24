@@ -28,17 +28,10 @@ public class CatFactory extends AnimalFactory {
 
 
     @Override
-    protected AbstractAnimal createAnimal() {
+    public AbstractAnimal createAnimal() {
         Random random = new Random();
         int i = random.nextInt(100);
-        Cat cat = new Cat("White", "Cat" + i, new BigDecimal(15.33 + i * 5),
+        return new Cat("White", catNames.get(i % catNames.size()), new BigDecimal(15.33 + i * 5),
                 "Cat", LocalDate.now().minusYears(i).minusMonths(i), "Saint Petersburg");
-        if (catNames != null) {
-            cat = new Cat("White", catNames.get(i % catNames.size()), new BigDecimal(15.33 + i * 5),
-                    "Cat", LocalDate.now().minusYears(i).minusMonths(i), "Saint Petersburg");
-        } else {
-            System.out.println("NUUUUUUUUUUULL");
-        }
-        return cat;
     }
 }

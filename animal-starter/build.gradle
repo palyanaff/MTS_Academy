@@ -17,4 +17,12 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter:2.7.4'
     implementation 'org.springframework.boot:spring-boot-autoconfigure:2.7.4'
     implementation 'org.springframework.boot:spring-boot-starter-validation:2.7.4'
+
+    testImplementation 'org.springframework.boot:spring-boot-starter-test:2.7.4'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.2'
+    testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.7.2'
+}
+
+test {
+    useJUnitPlatform()
 }
