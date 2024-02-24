@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - ApplicationTest</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>ApplicationTest</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/application.html">application</a> &gt; ApplicationTest</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">4</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.337s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">testFindDuplicates()</td>
+<td class="success">0.323s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testFindOlderAnimals()</td>
+<td class="success">0.006s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testFindOlderAnimalsYoungerThenYear()</td>
+<td class="success">0.005s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testStartApp()</td>
+<td class="success">0.003s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>21:36:30.546 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating CacheAwareContextLoaderDelegate from class [org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate]
+21:36:30.556 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating BootstrapContext using constructor [public org.springframework.test.context.support.DefaultBootstrapContext(java.lang.Class,org.springframework.test.context.CacheAwareContextLoaderDelegate)]
+21:36:30.587 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating TestContextBootstrapper for test class [application.ApplicationTest] from class [org.springframework.boot.test.context.SpringBootTestContextBootstrapper]
+21:36:30.599 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [application.ApplicationTest], using SpringBootContextLoader
+21:36:30.603 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [application.ApplicationTest]: class path resource [application/ApplicationTest-context.xml] does not exist
+21:36:30.603 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [application.ApplicationTest]: class path resource [application/ApplicationTestContext.groovy] does not exist
+21:36:30.603 [Test worker] INFO org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [application.ApplicationTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+21:36:30.782 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - @TestExecutionListeners is not present for class [application.ApplicationTest]: using defaults.
+21:36:30.782 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+21:36:30.792 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Skipping candidate TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener] due to a missing dependency. Specify custom listener classes or make the default listener classes and their required dependencies available. Offending class: [javax/servlet/ServletContext]
+21:36:30.794 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Skipping candidate TestExecutionListener [org.springframework.test.context.transaction.TransactionalTestExecutionListener] due to a missing dependency. Specify custom listener classes or make the default listener classes and their required dependencies available. Offending class: [org/springframework/transaction/interceptor/TransactionAttributeSource]
+21:36:30.795 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Skipping candidate TestExecutionListener [org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener] due to a missing dependency. Specify custom listener classes or make the default listener classes and their required dependencies available. Offending class: [org/springframework/transaction/interceptor/TransactionAttribute]
+21:36:30.795 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@200a26bc, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@bc57b40, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@1b5bc39d, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@655a5d9c, org.springframework.test.context.support.DirtiesContextTestExecutionListener@1494b84d, org.springframework.test.context.event.EventPublishingTestExecutionListener@34abdee4, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@71a9b4c7, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@4628b1d3, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@77cf3f8b, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@1df98368, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@21ca139c, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@226f885f]
+21:36:30.799 [Test worker] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: context [DefaultTestContext@16afbd92 testClass = ApplicationTest, testInstance = [null], testMethod = [null], testException = [null], mergedContextConfiguration = [MergedContextConfiguration@2c5d601e testClass = ApplicationTest, locations = '{}', classes = '{class ru.mts.Main}', contextInitializerClasses = '[]', activeProfiles = '{test}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@fb9c7aa, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@65b3a85a, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@2cae1042, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@f667fe, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@338494fa, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@24c22fe], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map[[empty]]], class annotated with @DirtiesContext [false] with mode [null].
+21:36:30.821 [Test worker] DEBUG org.springframework.test.context.support.DependencyInjectionTestExecutionListener - Performing dependency injection for test context [[DefaultTestContext@16afbd92 testClass = ApplicationTest, testInstance = application.ApplicationTest@6bc28a83, testMethod = [null], testException = [null], mergedContextConfiguration = [MergedContextConfiguration@2c5d601e testClass = ApplicationTest, locations = '{}', classes = '{class ru.mts.Main}', contextInitializerClasses = '[]', activeProfiles = '{test}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@fb9c7aa, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@65b3a85a, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@2cae1042, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@f667fe, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@338494fa, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@24c22fe], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.event.ApplicationEventsTestExecutionListener.recordApplicationEvents' -&gt; false]]].
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v2.7.4)
+
+2024-02-24 21:36:31.199  INFO 13696 --- [    Test worker] application.ApplicationTest              : Starting ApplicationTest using Java 11.0.22 on DESKTOP-4D1MSQS with PID 13696 (started by Maxim in C:\Users\Maxim\IdeaProjects\MTS_Academy\application)
+2024-02-24 21:36:31.209  INFO 13696 --- [    Test worker] application.ApplicationTest              : The following 1 profile is active: &quot;test&quot;
+2024-02-24 21:36:32.091  INFO 13696 --- [    Test worker] application.ApplicationTest              : Started ApplicationTest in 1.246 seconds (JVM running for 2.496)
+{CAT testSnejok=1964-07-24, CAT testMusya=1956-12-24, DOG testDrujok=2000-01-31}
+{Cat{breed='White', name='testSnejok', cost=290.33, character='Cat', birthDate=24-07-1964, address='Saint Petersburg'}=60, Dog{breed='Husky', name='testDrujok', cost=298.20, character='Dog', birthDate=31-01-2000, address='Moscow'}=24, Cat{breed='White', name='testMusya', cost=325.33, character='Cat', birthDate=24-12-1956, address='Saint Petersburg'}=68, Wolf{breed='Grey', name='testSummer', cost=1965.25, character='Wolf', birthDate=24-12-2007, location='Forest'}=17, Cat{breed='White', name='testMusya', cost=285.33, character='Cat', birthDate=24-08-1965, address='Saint Petersburg'}=59, Cat{breed='White', name='testSnejok', cost=130.33, character='Cat', birthDate=24-03-1999, address='Saint Petersburg'}=25, Dog{breed='Husky', name='testDrujok', cost=1114.20, character='Dog', birthDate=24-11-1931, address='Moscow'}=93}
+CAT=0
+WOLF=0
+DOG=0
+{Dog{breed='Husky', name='Old', cost=0.00, character='Dog', birthDate=24-02-2022, address='Moscow'}=2}
+Dog{breed='Husky', name='Old', cost=0.00, character='Dog', birthDate=24-02-2022, address='Moscow'}
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 8.4</a> at 24 февр. 2024 г., 21:36:32</p>
+</div>
+</div>
+</body>
+</html>

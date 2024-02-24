@@ -1,87 +1,101 @@
 package ru.mts.repository;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Repository;
 import ru.mts.animal.AbstractAnimal;
+import ru.mts.service.CreateService;
 import ru.mts.service.CreateServiceImpl;
 
 import javax.annotation.PostConstruct;
 import java.time.LocalDate;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 @Repository
 @Scope(value = "singleton")
 public class AnimalRepositoryImpl implements AnimalRepository {
 
-    private AbstractAnimal[] animals;
+    private Map<String, List<AbstractAnimal>> animals;
 
-    public final CreateServiceImpl createService;
+    public final CreateService createService;
 
-    public AnimalRepositoryImpl(CreateServiceImpl createService) {
+    public AnimalRepositoryImpl(CreateService createService) {
         this.createService = createService;
+        animals = createService.createAnimals();
     }
 
     @PostConstruct
     private void initService() {
-        animals = createService.createAnimals();
+
     }
 
     @Override
-    public String[] findLeapYearNames() {
-        String[] temp = new String[animals.length];
-        int resLength = 0;
-        for (AbstractAnimal animal : animals) {
-            if (animal.getBirthDate().isLeapYear()) {
-                temp[resLength++] = animal.getName();
-            }
-        }
-        String[] result = new String[resLength];
-        System.arraycopy(temp, 0, result, 0, resLength);
-        return result;
-    }
-
-    @Override
-    public AbstractAnimal[] findOlderAnimal(int N) {
-        AbstractAnimal[] temp = new AbstractAnimal[animals.length];
-        int resLength = 0;
-        for (AbstractAnimal animal : animals) {
-            int yearDif = LocalDate.now().getYear() - animal.getBirthDate().getYear();
-            int dayDif = LocalDate.now().getDayOfYear() - animal.getBirthDate().getDayOfYear();
-            if ((yearDif > N) || (yearDif == N && dayDif >= 0)) {
-                temp[resLength++] = animal;
-            }
-        }
-
-        AbstractAnimal[] result = new AbstractAnimal[resLength];
-        System.arraycopy(temp, 0, result, 0, resLength);
-        return result;
-    }
-
-    @Override
-    public Set<AbstractAnimal> findDuplicate() {
-        AbstractAnimal[] temp = new AbstractAnimal[animals.length];
-        int resLength = 0;
-        for (int i = 0; i < animals.length; i++) {
-            for (int j = 0; j < i; j++) {
-                if (animals[i].equals(animals[j])) {
-                    temp[resLength++] = animals[j];
+    public Map<String, LocalDate> findLeapYearNames() {
+        Map<String, LocalDate> result = new HashMap<>();
+        animals.forEach((animalType, animalsList) -> {
+            for (AbstractAnimal animal : animalsList) {
+                if (animal.getBirthDate().isLeapYear()) {
+                    result.put(animalType + " " + animal.getName(), animal.getBirthDate());
                 }
             }
+        });
+        return result;
+    }
+
+    @Override
+    public Map<AbstractAnimal, Integer> findOlderAnimal(int N) {
+        Map<AbstractAnimal, Integer> result = new HashMap<>();
+        final AbstractAnimal[] oldestAnimal = {null};
+        animals.forEach((animalType, animalsList) -> {
+            for (AbstractAnimal animal : animalsList) {
+                int yearDif = LocalDate.now().getYear() - animal.getBirthDate().getYear();
+                int dayDif = LocalDate.now().getDayOfYear() - animal.getBirthDate().getDayOfYear();
+                if ((yearDif > N) || (yearDif == N && dayDif >= 0)) {
+                    result.put(animal, yearDif);
+                } else {
+                    if (oldestAnimal[0] == null) {
+                        oldestAnimal[0] = animal;
+                    }
+
+                    int oldestYearDif = LocalDate.now().getYear() - oldestAnimal[0].getBirthDate().getYear();
+                    int oldestDayDif = LocalDate.now().getDayOfYear() - oldestAnimal[0].getBirthDate().getDayOfYear();
+
+                    if ((yearDif > oldestYearDif) || (yearDif == oldestYearDif && oldestDayDif >= 0)) {
+                        oldestAnimal[0] = animal;
+                    }
+                }
+            }
+
+        });
+        if (result.isEmpty()) {
+            int yearDif = LocalDate.now().getYear() - oldestAnimal[0].getBirthDate().getYear();
+            int dayDif = LocalDate.now().getDayOfYear() - oldestAnimal[0].getBirthDate().getDayOfYear();
+
+            result.put(oldestAnimal[0], dayDif < 0 ? yearDif - 1 : yearDif);
         }
-        return new HashSet<>(Arrays.asList(temp));
+        return result;
+    }
+
+    @Override
+    public Map<String, Integer> findDuplicate() {
+        Map<String, Integer> result = new HashMap<>();
+        animals.forEach((animalType, animalsList) -> {
+            int duplicateCounter = 0;
+            for (int i = 0; i < animalsList.size(); i++) {
+                for (int j = 0; j < i; j++) {
+                    if (animalsList.get(i).equals(animalsList.get(j))) {
+                        duplicateCounter++;
+                    }
+                }
+            }
+            result.put(animalType, duplicateCounter);
+        });
+        return result;
     }
 
     @Override
     public void printDuplicate() {
-        for (AbstractAnimal animal : findDuplicate()) {
-            System.out.println(animal);
-        }
-    }
-
-    public AbstractAnimal[] getAnimals() {
-        return animals;
+        findDuplicate().forEach((animalType, duplicateCount) -> {
+            System.out.println(animalType + "=" + duplicateCount);
+        });
     }
 }

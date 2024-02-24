@@ -17,8 +17,8 @@ public class AnimalScheduler {
 
     @Scheduled(fixedDelay = 60000L)
     public void doScheduled(){
-        System.out.println(Arrays.toString(animalRepository.findLeapYearNames()));
-        System.out.println(Arrays.toString(animalRepository.findOlderAnimal(10)));
+        System.out.println(animalRepository.findLeapYearNames().toString());
+        System.out.println(animalRepository.findOlderAnimal(10).toString());
         animalRepository.printDuplicate();
     }
 }

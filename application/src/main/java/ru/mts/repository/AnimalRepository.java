@@ -3,6 +3,8 @@ package ru.mts.repository;
 import org.springframework.stereotype.Repository;
 import ru.mts.animal.AbstractAnimal;
 
+import java.time.LocalDate;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -18,7 +20,7 @@ public interface AnimalRepository {
      *
      * @return array of String with animals name
      */
-    String[] findLeapYearNames();
+    Map<String, LocalDate> findLeapYearNames();
 
     /**
      * Method for finding animals which are older than N years
@@ -26,14 +28,14 @@ public interface AnimalRepository {
      * @param N year to compare
      * @return array of {@link AbstractAnimal} which are older than N years
      */
-    AbstractAnimal[] findOlderAnimal(int N);
+    Map<AbstractAnimal, Integer> findOlderAnimal(int N);
 
     /**
      * Method for finding duplicates in array of {@link AbstractAnimal}
      *
      * @return set of duplicates
      */
-    Set<AbstractAnimal> findDuplicate();
+    Map<String, Integer> findDuplicate();
 
     /**
      * Method for printing duplicates in array of {@link AbstractAnimal}
