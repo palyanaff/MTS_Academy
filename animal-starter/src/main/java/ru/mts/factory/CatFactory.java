@@ -28,7 +28,7 @@ public class CatFactory extends AnimalFactory {
 
 
     @Override
-    protected AbstractAnimal createAnimal() {
+    public AbstractAnimal createAnimal() {
         Random random = new Random();
         int i = random.nextInt(100);
         return new Cat("White", catNames.get(i % catNames.size()), new BigDecimal(15.33 + i * 5),

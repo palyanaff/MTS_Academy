@@ -27,7 +27,7 @@ public class WolfFactory extends AnimalFactory {
 
 
     @Override
-    protected AbstractAnimal createAnimal() {
+    public AbstractAnimal createAnimal() {
         Random random = new Random();
         int i = random.nextInt(100);
 

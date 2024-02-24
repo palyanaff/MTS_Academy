@@ -28,7 +28,7 @@ public class DogFactory extends AnimalFactory {
 
 
     @Override
-    protected AbstractAnimal createAnimal() {
+    public AbstractAnimal createAnimal() {
         Random random = new Random();
         int i = random.nextInt(100);
         return new Dog("Husky", dogNames.get(i % dogNames.size()), new BigDecimal(10.2 + i * 12),

@@ -80,4 +80,8 @@ public class AnimalRepositoryImpl implements AnimalRepository {
             System.out.println(animal);
         }
     }
+
+    public AbstractAnimal[] getAnimals() {
+        return animals;
+    }
 }
