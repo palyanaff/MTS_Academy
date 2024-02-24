@@ -9,8 +9,11 @@ import java.util.Arrays;
 
 @Component
 public class AnimalScheduler {
-    @Autowired
-    private AnimalRepository animalRepository;
+    private final AnimalRepository animalRepository;
+
+    public AnimalScheduler(AnimalRepository animalRepository) {
+        this.animalRepository = animalRepository;
+    }
 
     @Scheduled(fixedDelay = 60000L)
     public void doScheduled(){
