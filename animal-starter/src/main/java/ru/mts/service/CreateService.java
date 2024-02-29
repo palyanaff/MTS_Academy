@@ -2,11 +2,14 @@ package ru.mts.service;
 
 import ru.mts.animal.AbstractAnimal;
 
+import java.util.List;
+import java.util.Map;
+
 /**
  * Interface for creating classes with Factory pattern that extends {@link AbstractAnimal}
  *
  * @author palyanaff
- * @version 2.0
+ * @version 3.0
  */
 
 public interface CreateService {
@@ -14,40 +17,16 @@ public interface CreateService {
     /**
      * Method for creating array of {@link AbstractAnimal}
      *
-     * @return array of {@link AbstractAnimal}
+     * @return map of {@link AbstractAnimal}
      */
-    AbstractAnimal[] createAnimals();
+    Map<String, List<AbstractAnimal>> createAnimals();
 
 
     /**
      * Method for creating array of {@link AbstractAnimal}
      *
      * @param capacity amount of animals in array
-     * @return array of {@link AbstractAnimal}
+     * @return map of {@link AbstractAnimal}
      */
-    AbstractAnimal[] createAnimals(int capacity);
-
-    /**
-     * Method for creating array of {@link ru.mts.animal.Dog}
-     *
-     * @param capacity amount of dogs in array
-     * @return array of {@link ru.mts.animal.Dog}
-     */
-    AbstractAnimal[] createDogs(int capacity);
-
-    /**
-     * Method for creating array of {@link ru.mts.animal.Cat}
-     *
-     * @param capacity amount of cats in array
-     * @return array of {@link ru.mts.animal.Cat}
-     */
-    AbstractAnimal[] createCats(int capacity);
-
-    /**
-     * Method for creating array of {@link ru.mts.animal.Wolf}
-     *
-     * @param capacity amount of wolves in array
-     * @return array of {@link ru.mts.animal.Wolf}
-     */
-    AbstractAnimal[] createWolves(int capacity);
+    Map<String, List<AbstractAnimal>> createAnimals(int capacity);
 }
